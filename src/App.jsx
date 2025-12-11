@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { useDispatch, useSelector } from "react-redux";
+import { Analytics } from "@vercel/analytics/react";
 import "./i18nextConf";
 import "./index.css";
 
@@ -139,6 +140,7 @@ function App() {
   return (
     <div className="App">
       <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <Analytics />
         {!wall.booted ? <BootScreen dir={wall.dir} /> : null}
         {wall.locked ? <LockScreen dir={wall.dir} /> : null}
         <div className="appwrap">
